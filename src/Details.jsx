@@ -10,7 +10,7 @@ import AdoptedPetContext from "./AdoptedPetContext";
 const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [, setAdoptedPet] = useContext(AdoptedPetContext);
+  const [setAdoptedPet] = useContext(AdoptedPetContext);
 
   const [showModal, setShowModal] = useState(false);
   const results = useQuery(["details", id], fetchPet);
@@ -31,7 +31,7 @@ const Details = () => {
         <Carousel images={pet.images} />
         <h1>{pet.name}</h1>
         <h2>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
-        <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>;
+        <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
         <h4>{pet.description}</h4>
         {showModal ? (
           <Modal>
@@ -46,7 +46,7 @@ const Details = () => {
                 >
                   Yes
                 </button>
-                ;<button onClick={() => setShowModal(false)}>No</button>
+                <button onClick={() => setShowModal(false)}>No</button>
               </div>
             </div>
           </Modal>
